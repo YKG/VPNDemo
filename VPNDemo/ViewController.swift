@@ -12,17 +12,21 @@ import NetworkExtension
 class ViewController: UIViewController {
     var vpnManager: NETunnelProviderManager = NETunnelProviderManager()
     @IBOutlet var connectButton: UIButton!
-
+    @IBOutlet weak var ipTextField: UITextField!
+    
     // Hard code VPN configurations
     let tunnelBundleId = "org.kaige.vpndemo.tunnel"
 //    let serverAddress = "192.168.1.104"
-//    let serverAddress = "128.199.111.96"
+//    var serverAddress = "128.199.111.96"
+//    let serverAddress = "13.76.171.234"
+//    let serverAddress = "192.168.1.102"
     let serverAddress = "52.191.134.183"
-    let serverPort = "20177"
-    let mtu = "1400"
-    let ip = "10.8.0.2"
+    let serverPort = "20188" //ykgchanged
+    let mtu = "600" //ykgchanged
+    let ip = "10.9.0.2" //ykgchanged
     let subnet = "255.255.255.0"
     let dns = "8.8.8.8,8.4.4.4"
+//    var newIP = ""
 
 
     private func initVPNTunnelProviderManager() {
@@ -92,19 +96,19 @@ class ViewController: UIViewController {
         let status = self.vpnManager.connection.status
         switch status {
         case .connecting:
-            print("Connecting...")
-            connectButton.setTitle("Disconnect", for: .normal)
+            print("连接中...")
+            connectButton.setTitle("断开连接", for: .normal)
             break
         case .connected:
-            print("Connected...")
-            connectButton.setTitle("Disconnect", for: .normal)
+            print("已连接...")
+            connectButton.setTitle("断开连接", for: .normal)
             break
         case .disconnecting:
-            print("Disconnecting...")
+            print("断开中...")
             break
         case .disconnected:
-            print("Disconnected...")
-            connectButton.setTitle("Connect", for: .normal)
+            print("已断开...")
+            connectButton.setTitle("连接", for: .normal)
             break
         case .invalid:
             print("Invliad")
@@ -117,12 +121,42 @@ class ViewController: UIViewController {
 
     @IBAction func go(_ sender: UIButton, forEvent event: UIEvent) {
         print("Go!")
+        
+        
+        
+//        let s = "ykg"
+//        let buf = [UInt8](s.utf8)
+//        var data : Data
+//        data = Data.init(bytes: buf)
+//        
+//        print(data.hexEncodedString())
+//        
+//        var data2 : Data
+//        data2 = Data.init()
+//        data.forEach { (b) in
+//            data2.append(b & 1)
+//        }
+//        print(data2.hexEncodedString())
+//        
+//        print(data.xor().hexEncodedString())
+        
+        
 
+//        serverAddress = ipTextField.text!
+//        if serverAddress == "us1" {
+//            serverAddress = "52.191.134.183"
+//        }
+//        serverAddress = "52.191.134.183"
+//        print("go: " + serverAddress)
+//        initVPNTunnelProviderManager()
+//        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.VPNStatusDidChange(_:)), name: NSNotification.Name.NEVPNStatusDidChange, object: nil)
+//
+        
         self.vpnManager.loadFromPreferences { (error:Error?) in
             if let error = error {
                 print(error)
             }
-            if (sender.title(for: .normal) == "Connect") {
+            if (sender.title(for: .normal) == "连接") {
                 do {
                     try self.vpnManager.connection.startVPNTunnel()
                 } catch {

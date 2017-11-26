@@ -8,6 +8,17 @@
 
 import NetworkExtension
 
+extension Data {
+    func hexEncodedString() -> String {
+        return map { String(format: "%02hhx %c ", $0, $0) }.joined()
+    }
+    
+    func xor() -> Data {
+        return Data.init(map { (UInt8)($0 ^ 0xa5) })
+    }
+    
+}
+
 class PacketTunnelProvider: NEPacketTunnelProvider {
     var session: NWUDPSession? = nil
     var conf = [String: AnyObject]()
@@ -21,7 +32,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 // This is where encrypt() should reside
                 // A comprehensive encryption is not easy and not the point for this demo
                 // I just omit it
-                self.session?.writeDatagram(packet, completionHandler: { (error: Error?) in
+                let xorPacket = packet.xor()
+                self.session?.writeDatagram(xorPacket, completionHandler: { (error: Error?) in
                     if let error = error {
                         print(error)
                         self.setupUDPSession()
@@ -39,7 +51,10 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         session?.setReadHandler({ (_packets: [Data]?, error: Error?) -> Void in
             if let packets = _packets {
                 // This is where decrypt() should reside, I just omit it like above
-                self.packetFlow.writePackets(packets, withProtocols: [NSNumber](repeating: AF_INET as NSNumber, count: packets.count))
+//                let xorPacket = packets.xor()
+                let xorPackets = packets.map { $0.xor() }
+                
+                self.packetFlow.writePackets(xorPackets, withProtocols: [NSNumber](repeating: AF_INET as NSNumber, count: packets.count))
             }
         }, maxDatagrams: NSIntegerMax)
     }
@@ -60,6 +75,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         dnsSettings.matchDomains = [""]
         tunnelNetworkSettings.dnsSettings = dnsSettings
 
+        NSLog("ykg %d", 1)
         self.setTunnelNetworkSettings(tunnelNetworkSettings) { (error: Error?) -> Void in
             self.udpToTun()
         }

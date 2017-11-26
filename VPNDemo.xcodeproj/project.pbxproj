@@ -398,7 +398,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = VPNDemo/VPNDemo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = LUM8S4W828;
 				INFOPLIST_FILE = "$(SRCROOT)/VPNDemo/Info.plist";
@@ -406,8 +406,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaige.vpndemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c88b40e8-dfb0-4829-b361-11f5e46dcada";
-				PROVISIONING_PROFILE_SPECIFIER = vprod1;
+				PROVISIONING_PROFILE = "08d4a207-6433-4796-8a6e-1c916e2e9feb";
+				PROVISIONING_PROFILE_SPECIFIER = vpnonhong1;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -418,7 +418,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = VPNDemo/VPNDemo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = LUM8S4W828;
 				INFOPLIST_FILE = "$(SRCROOT)/VPNDemo/Info.plist";
@@ -426,8 +426,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaige.vpndemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c88b40e8-dfb0-4829-b361-11f5e46dcada";
-				PROVISIONING_PROFILE_SPECIFIER = vprod1;
+				PROVISIONING_PROFILE = "90421c09-bb7d-409a-9211-3ab3d254c4e6";
+				PROVISIONING_PROFILE_SPECIFIER = "Prod-hong1";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -436,7 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = VPNDemoTunnel/VPNDemoTunnel.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = LUM8S4W828;
 				INFOPLIST_FILE = "$(SRCROOT)/VPNDemoTunnel/Info.plist";
@@ -444,8 +444,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaige.vpndemo.tunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f05cd9-bfcf-4330-bb76-0417ba80ba00";
-				PROVISIONING_PROFILE_SPECIFIER = vprod2;
+				PROVISIONING_PROFILE = "a709bdde-fce4-4dfb-ba66-0da7df75d4ee";
+				PROVISIONING_PROFILE_SPECIFIER = vpnonhong2;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -455,7 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = VPNDemoTunnel/VPNDemoTunnel.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = LUM8S4W828;
 				INFOPLIST_FILE = "$(SRCROOT)/VPNDemoTunnel/Info.plist";
@@ -463,8 +463,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaige.vpndemo.tunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0f05cd9-bfcf-4330-bb76-0417ba80ba00";
-				PROVISIONING_PROFILE_SPECIFIER = vprod2;
+				PROVISIONING_PROFILE = "4abc1fd5-5f3a-4941-aa8f-9ea78ccaa368";
+				PROVISIONING_PROFILE_SPECIFIER = Prodhong2;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
